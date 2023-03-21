@@ -1,3 +1,15 @@
 <div id="list-example" class="list-group">
-    <a mat-list-item [id]="link" class="list-group-item list-group-item-action" href="..." *ngFor="let link of links">{{ link }}</a>
+    <div
+    #Tag
+    [id]="i" 
+    class="list-group-item list-group-item-action" 
+    [class.done]="todo.done" 
+    (click)="changeDone(todo);"
+    (mouseenter)="Tag.classList.add('focused')"
+    (mouseout)="Tag.classList.remove('focused')"
+    *ngFor="let todo of todos; index as i">
+        {{ todo.text }}
+    </div>
+    
 </div>
+
