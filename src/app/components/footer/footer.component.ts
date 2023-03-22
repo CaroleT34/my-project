@@ -9,12 +9,17 @@ import { TodoService } from 'src/app/shared/services/todo.service';
 })
 
 export class FooterComponent {
-  todos: Todo[] = this._todoService.todos;
-  todosCopyFooter: Todo[];
+  todos: Todo[] = [];
 
   constructor(private _todoService: TodoService) {
-    this.todosCopyFooter = this._todoService.getTodosCopy();
-    this.todosCopyFooter.pop();
+    const sub = this._todoService.todos$.subscribe((todosReceived) => {
+      this.todos = todosReceived;
+    })
+
+    //Désabonnement
+    setTimeout(() => {
+      sub.unsubscribe();
+    }, 10000);
   }
   
 }

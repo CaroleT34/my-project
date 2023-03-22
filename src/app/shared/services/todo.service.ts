@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Todo } from '../models/todo';
 
 @Injectable({
@@ -6,21 +7,48 @@ import { Todo } from '../models/todo';
 })
 export class TodoService {
 
-  public todos: Todo[] = [
+  private _todos: Todo[] = [
     new Todo('Faire la vaisselle'),
     new Todo('Faire le ménage'),
     new Todo('Faire les courses'),
     new Todo('Travailler les cours'),
   ];
 
-  constructor() { 
-    setTimeout(() => {
-      this.todos.push(new Todo("Démarrer le programme"))
-    }, 2000);
+  //Programmation réactive == un observable
+  //MAJ de la vue sans manipuler directement l'objet
+  public todos$ = new BehaviorSubject([
+    new Todo('Faire la vaisselle'),
+    new Todo('Faire le ménage'),
+    new Todo('Faire les courses'),
+    new Todo('Travailler les cours'),
+  ]);
+
+  get todos() {
+    return [ ...this._todos ];
   }
 
-  public getTodosCopy(): Todo[] {
-    return [...this.todos];
+  constructor() {
+    setTimeout(() => {
+      this.todos$.next([
+        ...this.todos$.value,               //valeurs déjà contenues
+        new Todo("Démarrer le programme")   //nouvelle valeur
+      ]);
+    }, 2000);
+
+    setTimeout(() => {
+      this.todos$.next([]);
+    }, 3000);
+
+    // //Abonnement 
+    // const sub = this.todos$.subscribe(
+    //   (todosReceived) => {
+    //     console.log(todosReceived)
+    //     this._todos = todosReceived
+    //   });
+
+    // //Désabonnement
+    // setTimeout(() => {
+    //   sub.unsubscribe();
+    // }, 5000);
   }
-  
 }
