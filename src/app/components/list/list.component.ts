@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Todo } from 'src/app/shared/models/todo';
+import { TodoService } from 'src/app/shared/services/todo.service';
 
 @Component({
   selector: 'app-list',
@@ -9,12 +10,8 @@ import { Todo } from 'src/app/shared/models/todo';
 
 
 export class ListComponent {
-  todos: Todo[] = [
-    new Todo('Faire la vaisselle'),
-    new Todo('Faire le ménage'),
-    new Todo('Faire les courses'),
-    new Todo('Travailler les cours'),
-  ];
+  todos: Todo[] = this._todoService.todos;
+  constructor(private _todoService : TodoService) {}
   //type any quand c'est un objet
   changeDone (todo :any) {
     todo.done = !todo.done;
