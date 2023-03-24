@@ -1,6 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Todo } from 'src/app/shared/models/todo';
+import { Component } from '@angular/core';
 import { TodoService } from 'src/app/shared/services/todo.service';
 
 @Component({
@@ -9,21 +7,9 @@ import { TodoService } from 'src/app/shared/services/todo.service';
   styleUrls: ['./footer.component.css']
 })
 
-export class FooterComponent implements OnInit, OnDestroy{
-  todos: Todo[] = [];
-  
-  private _subscription!: Subscription;
+export class FooterComponent {
+  todos$ = this._todoService.todos$;
 
   constructor(private _todoService: TodoService) {}
-
-  ngOnInit() {
-    this._subscription = this._todoService.todos$.subscribe(
-      todosReceived => this.todos = todosReceived
-    );
-  }
-
-  ngOnDestroy() {
-    this._subscription.unsubscribe();
-  }
   
 }

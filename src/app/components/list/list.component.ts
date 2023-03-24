@@ -1,6 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Todo } from 'src/app/shared/models/todo';
+import { Component } from '@angular/core';
 import { TodoService } from 'src/app/shared/services/todo.service';
 
 @Component({
@@ -10,25 +8,15 @@ import { TodoService } from 'src/app/shared/services/todo.service';
 })
 
 
-export class ListComponent implements OnInit, OnDestroy {
-  todos: Todo[] = [];
-
-  private _subscription!: Subscription;
+export class ListComponent {
+  todos$ = this._todoService.todos$;
 
   constructor(private _todoService: TodoService) {}
+
+  
   //type any quand c'est un objet
   changeDone (todo :any) {
     todo.done = !todo.done;
-  }
-
-  ngOnInit() {
-    this._subscription = this._todoService.todos$.subscribe(
-      todosReceived => this.todos = todosReceived
-    );
-  }
-
-  ngOnDestroy() {
-    this._subscription.unsubscribe();
   }
 
 }
