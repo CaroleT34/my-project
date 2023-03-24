@@ -1,3 +1,8 @@
+import { App } from './app/app';
+import './index.scss';
+
+App.run();
+
 interface Brick {
     color: string;
     addNewBrick: () => void;
