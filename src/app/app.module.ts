@@ -7,6 +7,7 @@ import { MainComponent } from './components/main/main.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ListComponent } from './components/list/list.component';
+import { OneComponent } from './components/one/one.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ListComponent } from './components/list/list.component';
     LogoComponent,
     FooterComponent,
     ListComponent,
+    OneComponent,
   ],
   imports: [ BrowserModule ],
   bootstrap: [ AppComponent ]
