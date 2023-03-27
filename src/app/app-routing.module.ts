@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
-import { HistoryComponent } from './components/history/history.component';
 import { HomeComponent } from './components/home/home.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
-import { TeamComponent } from './components/team/team.component';
 
 
 const routes: Routes = [
@@ -12,10 +10,10 @@ const routes: Routes = [
   {
     path: 'presentation',
     component: PresentationComponent,
-    children: [
-      { path: '', component: TeamComponent },
-      { path: 'history', component: HistoryComponent },
-    ]
+    // children: [
+    //   { path: '', component: TeamComponent },
+    //   { path: 'history', component: HistoryComponent },
+    // ]
   },
   { path: 'contact', component: ContactComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

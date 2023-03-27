@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
+import { CountryComponent } from './components/country/country.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,10 +24,13 @@ const routes: Routes = [
     HomeComponent,
     ContactComponent,
     PresentationComponent,
+    CountryComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    AppRoutingModule,
+    FormsModule,
   ],
   bootstrap: [ AppComponent ]
 })

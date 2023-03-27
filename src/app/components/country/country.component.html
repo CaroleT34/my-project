@@ -1,0 +1,70 @@
+<h1>Formulaire de contact</h1>
+
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+    <p>
+      <label>Nom:
+        <input [(ngModel)]="contact.lastname" #lastname="ngModel" required minlength="3" type="text" name="lastname" ngModel>
+        <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" style="color:red">
+          Le nom doit contenir plus de 3 caractères
+        </div>
+      </label>
+    </p>
+    <p>
+      <label>Prénom:
+        <input [(ngModel)]="contact.firstname" #firstname="ngModel" required type="text" name="firstname" ngModel>
+      </label>
+    </p>
+    <div ngModelGroup="address">
+      <p>
+        <label>Rue:
+          <input type="text" name="street" ngModel>
+        </label>
+      </p>
+      <p>
+        <label>Code postal:
+          <input type="text" name="zipcode" ngModel>
+        </label>
+      </p>
+      <p>
+        <label>Ville:
+          <input type="text" name="city" ngModel>
+        </label>
+      </p>
+    </div>
+    <p>
+      <label>Email:
+        <input [(ngModel)]="contact.email" #email="ngModel" required type="email" name="email" ngModel>
+      </label>
+    </p>
+    <p>
+      <label>Gender:
+        Femme <input [(ngModel)]="contact.gender" #gender="ngModel" type="radio" name="gender" value="female" ngModel>
+        Homme <input type="radio" name="gender" value="male" ngModel>
+      </label>
+    </p>
+    <p>
+      <label>Êtes-vous marié ?
+        <input [(ngModel)]="contact.isMarried" #isMarried="ngModel" type="checkbox" name="isMarried" ngModel>
+      </label>
+    </p>
+    <p>
+      <label>Pays:
+        <select #country="ngModel" name="country" ngModel>
+          <option value="" selected></option>  
+          <option *ngFor="let c of countries" [ngValue]="c.id">
+            {{ c.name }}
+          </option>  
+        </select>
+      </label>
+    </p>
+    <p>
+      <button [disabled]="!contactForm.valid" type="submit">Envoyer</button>
+    </p>
+</form>
+
+<pre> Value :{{contactForm.value |json}} </pre>
+<p>
+    Valid : {{contactForm.valid}}
+    Touched: {{ contactForm.touched }} -
+    Submitted: {{ contactForm.submitted }}
+</p>
