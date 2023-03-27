@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-one',
@@ -6,13 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./one.component.css']
 })
 export class OneComponent {
-  @Input() data='';
-  @Input() myVar='';
-
-  constructor() {
-    setTimeout(() => {
-      this.data = 'Nouvelle valeur';
-      this.myVar = 'Coucou';
-    }, 3000);
-  }
+  @Output() emitter = new EventEmitter();
 }

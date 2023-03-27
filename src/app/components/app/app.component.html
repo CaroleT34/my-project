@@ -1,6 +1,3 @@
-<app-header></app-header>
-<div class="container-fluid">
-  <app-main></app-main>
-  <app-one data="'salut'" [myVar]="greeting"></app-one>
-</div>
-<app-footer></app-footer>
+<h1>{{ count }}</h1>
+
+<app-one (emitter)="count = count + $event"></app-one>
