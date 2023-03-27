@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/app/app.component';
@@ -8,6 +9,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ListComponent } from './components/list/list.component';
 import { OneComponent } from './components/one/one.component';
+import { TodoFormComponent } from './components/todo-form/todo-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,8 +22,13 @@ import { OneComponent } from './components/one/one.component';
     FooterComponent,
     ListComponent,
     OneComponent,
+    TodoFormComponent,
   ],
-  imports: [ BrowserModule ],
+  imports: [ 
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
