@@ -20,4 +20,10 @@ export class TodoComponent {
     todo.completed = !todo.completed;
     this._todoService['update'](todo);
   }
+
+  deleteTodo(id?: string) {
+    if (id) {
+      this._todoService.delete(id);
+    }
+  }
 }

@@ -5,13 +5,12 @@
 <ul class="list-group">
   <li
     #liTag
-    (click)="toggleStateTodo(todo)"
     (mouseenter)="liTag.classList.add('focused')"
     (mouseout)="liTag.classList.remove('focused')"
     [class.done]="todo.completed"
     *ngFor="let todo of todos$ |async"
-    class="list-group-item">
-      {{ todo.title }}
+    class="list-group-item d-flex justify-content-between">
+      <span (click)="toggleStateTodo(todo)">{{ todo.title }}</span>
+      <button class="btn btn-sm btn-danger" (click)="deleteTodo(todo.id)">✖︎</button>
   </li>
 </ul>
-
