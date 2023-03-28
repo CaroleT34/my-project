@@ -15,8 +15,8 @@ export class TodoFormComponent {
   onSubmit(form: NgForm) {
     if (form.valid) {
       const todo = new Todo();
-      todo.title = form.value.title;
-      todo.completed = !!form.value.completed;
+      todo.text = form.value.text;
+      todo.done = !!form.value.done;
       this._todoService.create(todo);
       form.reset();
     }

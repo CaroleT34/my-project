@@ -2,15 +2,26 @@
 
 <app-todo-form></app-todo-form>
 
-<ul class="list-group">
+<ul class="list-group my-3">
   <li
     #liTag
+    (click)="selectTodo(todo)"
     (mouseenter)="liTag.classList.add('focused')"
     (mouseout)="liTag.classList.remove('focused')"
-    [class.done]="todo.completed"
+    [class.done]="todo.done"
     *ngFor="let todo of todos$ |async"
     class="list-group-item d-flex justify-content-between">
-      <span (click)="toggleStateTodo(todo)">{{ todo.title }}</span>
-      <button class="btn btn-sm btn-danger" (click)="deleteTodo(todo.id)">✖︎</button>
+      <span
+        *ngIf="!todo.editable"
+        (click)="toggleStateTodo(todo)">{{ todo.text }}</span>
+      <input
+        *ngIf="todo.editable"
+        [(ngModel)]="todo.text">
+      <div class="buttons">
+        <button class="btn btn-sm btn-danger mx-3" (click)="deleteTodo(todo.id)">✖︎</button>
+        <button [routerLink]="['/todos', todo.id]" class="btn btn-sm btn-success" (click)="editTodo(todo)">
+          {{ todo.editable? '✔' : '✎' }}
+        </button>
+      </div>
   </li>
 </ul>

@@ -37,10 +37,12 @@ export class TodoService {
       .subscribe(() => this.findAll());
   }
 
-  public delete(id: string) {
-    this._http
-      .delete<Todo>(`${this._baseUrl}/${id}`)
-      .subscribe(() => this.findAll());
+  public delete(id?: string) {
+    if (id) {
+      this._http
+        .delete<Todo>(`${this._baseUrl}/${id}`)
+        .subscribe(() => this.findAll());
+    }
   }
 
 }

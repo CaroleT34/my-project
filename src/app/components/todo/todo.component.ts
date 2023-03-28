@@ -11,19 +11,27 @@ import { TodoService } from 'src/app/shared/services/todo.service';
 
 export class TodoComponent {
   todos$ = this._todoService.todos$;
+  selected!: Todo;
 
   constructor(
     private _todoService: TodoService
   ) {}
 
+  selectTodo(selected: Todo) {
+    this.selected = selected;
+  }
+
   toggleStateTodo(todo: Todo) {
-    todo.completed = !todo.completed;
-    this._todoService['update'](todo);
+    todo.done = !todo.done;
+    this._todoService.update(todo);
+  }
+
+  editTodo(todo: Todo) {
+    todo.editable = !todo.editable;
+    if (!todo.editable) this._todoService.update(todo);
   }
 
   deleteTodo(id?: string) {
-    if (id) {
-      this._todoService.delete(id);
-    }
+    this._todoService.delete(id);
   }
 }
