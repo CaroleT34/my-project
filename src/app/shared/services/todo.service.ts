@@ -7,6 +7,7 @@ import { Todo } from '../models/todo';
   providedIn: 'root'
 })
 export class TodoService {
+  [x: string]: any;
 
   public todos$ = new BehaviorSubject<Todo[]>([]);
 
@@ -24,12 +25,14 @@ export class TodoService {
   }
 
   public create(todo: Todo) {
-    this.todos$.next([
-      todo,
-      ...this.todos$.value,
-    ]);
-    // this._http
-    //   .post<Todo[]>('http://localhost:3000/todos');
+    this._http
+      .post<Todo>('http://localhost:3000/todos', todo)
+      .subscribe(newTodo => {
+        this.todos$.next([
+          newTodo,
+          ...this.todos$.value,
+        ]);
+      });
   }
 
   // private _todos: Todo[] = [

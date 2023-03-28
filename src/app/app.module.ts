@@ -7,7 +7,7 @@ import { LogoComponent } from './components/logo/logo.component';
 import { MainComponent } from './components/main/main.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ListComponent } from './components/list/list.component';
+import { TodoComponent } from './components/todo/todo.component';
 import { OneComponent } from './components/one/one.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     NavComponent,
     LogoComponent,
     FooterComponent,
-    ListComponent,
+    TodoComponent,
     OneComponent,
     TodoFormComponent,
   ],

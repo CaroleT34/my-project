@@ -1,13 +1,28 @@
-<form #formAddTodo="ngForm" (ngSubmit)="onSubmit(formAddTodo)">
-    <p>
-      <label for="todo">Tâche:</label>
-      <input required id="todo" type="text" name="text" ngModel>
-    </p>
-    
-    <p>
-      <label for="done">Faite ?</label>
-      <input id="done" type="checkbox" name="done" ngModel>
-    </p>
+<form
+  class="d-flex flex-column text-center mx-5"
+  #formAddTodo="ngForm"
+  (ngSubmit)="onSubmit(formAddTodo)">
+
+  <div class="mb-3">
+    <label class="form-label" for="todo">Tâche:</label>
+    <input
+      required
+      class="form-control"
+      id="todo"
+      type="text"
+      name="title"
+      ngModel>
+  </div>
   
-    <button type="submit" [disabled]="formAddTodo.invalid">Go!</button>
-  </form>
+  <div class="mb-3">
+    <label class="form-label" for="completed">Faite ?</label>
+    <input
+      class="form-check-input mx-3"
+      id="completed"
+      type="checkbox"
+      name="completed"
+      ngModel>
+  </div>
+
+  <button class="btn btn-success btn-sm" type="submit" [disabled]="formAddTodo.invalid">Go!</button>
+</form>

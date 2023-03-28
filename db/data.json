@@ -1,3 +1,14 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "title": "faire la vaisselle",
+      "completed": true,
+      "id": 1
+    },
+    {
+      "title": "coder proprement",
+      "completed": false,
+      "id": 2
+    }
+  ]
 }

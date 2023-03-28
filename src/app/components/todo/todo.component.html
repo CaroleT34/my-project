@@ -1,0 +1,17 @@
+<h1 class="my-3 text-center">Liste des tâches</h1>
+
+<app-todo-form></app-todo-form>
+
+<ul class="list-group">
+  <li
+    #liTag
+    (click)="toggleStateTodo(todo)"
+    (mouseenter)="liTag.classList.add('focused')"
+    (mouseout)="liTag.classList.remove('focused')"
+    [class.done]="todo.completed"
+    *ngFor="let todo of todos$ |async"
+    class="list-group-item">
+      {{ todo.title }}
+  </li>
+</ul>
+
