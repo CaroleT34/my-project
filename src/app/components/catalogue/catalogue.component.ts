@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Catalogue } from 'src/app/shared/models/catalogue';
 import { CatalogueService } from 'src/app/shared/services/catalogue.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-catalogue',
@@ -10,6 +11,7 @@ import { CatalogueService } from 'src/app/shared/services/catalogue.service';
 export class CatalogueComponent {
   movies$ = this._catalogueService.movies$;
   selected!: Catalogue;
+  searchTerm = '';
 
   constructor(
     private _catalogueService: CatalogueService
@@ -23,6 +25,12 @@ export class CatalogueComponent {
     movie.favoris = !movie.favoris;
     if (movie) this._catalogueService.update(movie);
     
+  }
+
+  filterCountries(searchTerm: string) {
+    this.selected.title = searchTerm.trim().toLocaleLowerCase();
+    const filterValue = searchTerm;
+    this.selected.title = filterValue.trim().toLowerCase();
   }
 
 }
