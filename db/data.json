@@ -1,0 +1,9 @@
+{
+    "movies": [
+      {
+        "title": "Aladdin",
+        "id": 1,
+        "favoris": false
+      }
+    ]
+  }

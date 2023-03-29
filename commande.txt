@@ -4,3 +4,13 @@ ng g c components/home
 ng g c components/catalogue
 ng g c components/contact
 ng g c components/nav
+
+
+npm i -D json-server
+"api" : "json-server db/data.json -w"
+ng g environments
+npm i -D concurrently
+"start": "concurrently 'ng serve' 'npm run api'",
+
+ng g cl shared/models/catalogue
+ng g s shared/services/catalogue

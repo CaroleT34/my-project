@@ -1,1 +1,12 @@
-<p>catalogue works!</p>
+<h1 class="my-3 text-center">Liste des films</h1>
+
+<ul class="list-group my-3">
+    <li
+      #liTag
+      (click)="selectMovie(movie)"
+      [class.favoris]="movie.favoris"
+      *ngFor="let movie of movies$ |async"
+      class="list-group-item d-flex justify-content-between">
+       {{ movie.title }}
+    </li>
+  </ul>
