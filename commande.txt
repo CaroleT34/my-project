@@ -1,0 +1,6 @@
+ng g c components/header
+ng g c components/footer
+ng g c components/home
+ng g c components/catalogue
+ng g c components/contact
+ng g c components/nav
