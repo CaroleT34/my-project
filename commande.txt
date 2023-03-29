@@ -14,3 +14,5 @@ npm i -D concurrently
 
 ng g cl shared/models/catalogue
 ng g s shared/services/catalogue
+
+ng g pipe searchFilter
