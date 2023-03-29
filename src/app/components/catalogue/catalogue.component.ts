@@ -19,4 +19,10 @@ export class CatalogueComponent {
     this.selected = selected;
   }
 
+  bookmark(movie: Catalogue) {
+    movie.favoris = !movie.favoris;
+    if (movie) this._catalogueService.update(movie);
+    
+  }
+
 }

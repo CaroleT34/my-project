@@ -23,4 +23,10 @@ export class CatalogueService {
         this.movies$.next(catFromApi);
       });
   }
+
+  public update(catalogue: Catalogue) {
+    this._http
+      .put<Catalogue>(`${this._baseUrl}/${catalogue.id}`, catalogue)
+      .subscribe(() => this.findAll());
+  }
 }

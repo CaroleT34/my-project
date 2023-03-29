@@ -1,9 +1,14 @@
 {
-    "movies": [
-      {
-        "title": "Aladdin",
-        "id": 1,
-        "favoris": false
-      }
-    ]
-  }
+  "movies": [
+    {
+      "title": "Aladdin",
+      "id": 1,
+      "favoris": true
+    },
+    {
+      "title": "Le Roi lion",
+      "id": 2,
+      "favoris": false
+    }
+  ]
+}
