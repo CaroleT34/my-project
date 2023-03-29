@@ -1,23 +1,37 @@
 import { Observable } from 'rxjs';
 
-const observable = new Observable((observer) => {
-  const friends = ['coco', 'jaco', 'pedro'];
-  
-  setTimeout(() => {
-    observer.next(friends);
-    observer.error('Oups I did it again')
 
-    setTimeout(() => {
-      observer.next(true);
-    }, 2000);
+
+// CREATEUR DE l'OBSERVABLE
+const observable = new Observable(obs => {
+  // TODAY
+  let article = 'Il était une fois';
+  obs.next(article);
+
+  // TOMORROW
+  setTimeout(() => {
+    let article = 'Biographie générale';
+    obs.next(article);
   }, 2000);
+
+  // 4 DAYS
+  setTimeout(() => {
+    obs.next('Plus d\'articles!');
+    obs.complete();
+  }, 3000);
 });
 
-// observable.subscribe(
-//   (data) => console.log(data)
-// );
-const sub = observable.subscribe(console.log);
 
-setTimeout(() => {
-  sub.unsubscribe();
-}, 10000);
+
+
+// UTILISATEUR DE L'OBSERVABLE
+const observer = {
+  next: (article) => console.log(article),
+  error: (error) => console.log("error invoked"),
+  complete: () => console.log("complete invoked"),
+};
+
+observable.subscribe({
+  next: article => console.log(article),
+  error: errorReceived => console.error('[DWAPS ERROR] -->', errorReceived)
+});
