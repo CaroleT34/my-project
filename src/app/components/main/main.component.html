@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill">
+    <label>Select an option</label>
+    <select matNativeControl [(ngModel)]="selectedUser" name="user" class="form-select m-3">
+        <option *ngFor="let user of users" [value]="user.id">
+          {{user.name}}
+        </option>
+    </select>
+  </mat-form-field>
+  
+  <p>You selected: {{selectedUser}}</p>
+<app-todo (title)="selectedUser"></app-todo>
