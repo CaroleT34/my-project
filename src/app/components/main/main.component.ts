@@ -9,11 +9,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class MainComponent {
   selectedUser!: string;
-
-  users : User[] = [
-    {id: '1', name: 'Michel'},
-    {id: '2', name: 'Manon'}
-  ];
+  users : User[] = [];
 
   constructor(private userService: UserService) {}
 
