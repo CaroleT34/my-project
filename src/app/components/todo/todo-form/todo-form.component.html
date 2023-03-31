@@ -1,0 +1,46 @@
+<div class="card-header text-center text-info h4">
+    AJOUTER UNE TACHE
+</div>
+<div class="card-body">
+    <blockquote class="blockquote mb-0">
+        <form
+            class="d-flex flex-column text-center mx-5"
+            #formAddTodo="ngForm"
+            (ngSubmit)="onSubmit(formAddTodo)">
+
+            <div class="mb-3">
+                <label class="form-label" for="todo">Tâche:</label>
+                <input
+                required
+                class="form-control"
+                id="todo"
+                type="text"
+                name="text"
+                ngModel>
+            </div>
+
+            <div>
+                <label>Catégorie :
+                  <select #country="ngModel" name="categorie" required ngModel>
+                    <option value="" selected></option>  
+                    <option value="urgent">Urgent</option>
+                    <option value="eleve">Eleve</option>
+                    <option value="normal">Normal</option> 
+                  </select>
+                </label>
+            </div>
+  
+            <div class="mb-3">
+                <label class="form-label" for="done">Faite ?</label>
+                <input
+                class="form-check-input mx-3"
+                id="done"
+                type="checkbox"
+                name="done"
+                ngModel>
+            </div>
+            <button class="btn btn-success btn-sm" type="submit" [disabled]="formAddTodo.invalid">Valider</button>
+            <span *ngIf="id_user == undefined">*Merci de sélectionner un utilisateur avant l'ajout</span>
+        </form>
+    </blockquote>
+</div>

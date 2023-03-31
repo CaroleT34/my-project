@@ -1,13 +1,13 @@
 <mat-form-field appearance="fill">
-    <label>Select an option</label>
+    <label>Choisir un utilisateur</label>
     <select matNativeControl [(ngModel)]="selectedUser" name="user" class="form-select m-3">
         <option>--Choose--</option>
         <option *ngFor="let user of users" [value]="user.id">
           {{user.name}}
         </option>
     </select>
-    <div *ngIf="users">
-        <p>{{getSelectedUserName()}}</p>
+    <div *ngIf="users" class="d-flex justify-content-center">
+        <h1>{{getSelectedUserName()}}</h1>
     </div>
   </mat-form-field>
 <app-todo [id_user]="selectedUser"></app-todo>

@@ -15,6 +15,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { TodoFormComponent } from './components/todo/todo-form/todo-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatInputModule} from '@angular/material/input';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    TodoComponent
+    TodoComponent,
+    TodoFormComponent
   ],
   imports: [
     BrowserModule,

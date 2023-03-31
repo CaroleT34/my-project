@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, filter } from 'rxjs';
+import { BehaviorSubject, filter, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Todo } from '../models/todo';
 
@@ -22,6 +22,16 @@ export class TodoService {
       .subscribe(todosFromApi => {
         this.todos$.next(todosFromApi);
       });
+  }
+
+  public create(todo: Todo) {
+    return this.http
+      .post<Todo>(this.apiUrl, todo)
+      .pipe(
+        tap(() => setTimeout(() => {
+          this.findAll();
+        }, 500))
+      );
   }
 
   public update(todo: Todo) {
