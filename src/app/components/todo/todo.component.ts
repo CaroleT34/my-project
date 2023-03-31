@@ -48,11 +48,6 @@ export class TodoComponent {
       return of(userFilterById);
     }
   }
-  
-
-  selectTodo(selected: Todo) {
-    this.selected = selected;
-  }
 
   toggleStateTodo(todo: Todo) {
     todo.done = !todo.done;

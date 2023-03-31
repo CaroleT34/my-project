@@ -2,14 +2,14 @@
   "todos": [
     {
       "text": "tache 1",
-      "done": false,
+      "done": true,
       "id": 1,
       "categorie": "urgent",
       "id_user": 1
     },
     {
       "text": "tache 2",
-      "done": true,
+      "done": false,
       "id": 2,
       "categorie": "normal",
       "id_user": 1

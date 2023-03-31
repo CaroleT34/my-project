@@ -10,9 +10,7 @@
                     <div *ngIf="id_user; else elseBlock">
                         <li
                         #liTag
-                        (click)="selectTodo(todo)"
-                        (mouseenter)="liTag.classList.add('focused')"
-                        (mouseout)="liTag.classList.remove('focused')"
+                        (click)="toggleStateTodo(todo)"
                         *ngFor="let todo of getTodosByUserAndTaskToDo(id_user) | async"
                         class="list-group-item d-flex justify-content-between">
                         
@@ -56,9 +54,7 @@
                     <div *ngIf="id_user; else elseBlock">
                         <li
                         #liTag
-                        (click)="selectTodo(todo)"
-                        (mouseenter)="liTag.classList.add('focused')"
-                        (mouseout)="liTag.classList.remove('focused')"
+                        (click)="toggleStateTodo(todo)"
                         *ngFor="let todo of getTodosByUserAndTaskDone(id_user) | async"
                         class="list-group-item d-flex justify-content-between">
                         
