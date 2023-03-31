@@ -1,0 +1,16 @@
+.urgent {
+    background-color: rgb(235, 89, 89);
+}
+
+.eleve {
+    background-color: rgb(235, 233, 89);
+}
+
+.normal {
+    background-color: rgba(114, 236, 103, 0.781);
+}
+
+.done {
+    background-color: #aaa;
+    text-decoration: line-through;
+}

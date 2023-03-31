@@ -39,7 +39,7 @@
                 name="done"
                 ngModel>
             </div>
-            <button class="btn btn-success btn-sm" type="submit" [disabled]="formAddTodo.invalid">Valider</button>
+            <button class="btn btn-success btn-sm" style="cursor:pointer" type="submit" [disabled]="formAddTodo.invalid">Valider</button>
             <span *ngIf="id_user == undefined">*Merci de sélectionner un utilisateur avant l'ajout</span>
         </form>
     </blockquote>
